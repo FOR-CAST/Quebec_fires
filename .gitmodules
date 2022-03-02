@@ -49,3 +49,6 @@
 [submodule "modules/fireSense_dataPrepPredict"]
 	path = modules/fireSense_dataPrepPredict
 	url = https://github.com/PredictiveEcology/fireSense_dataPrepPredict
+[submodule "modules/Quebec_fires_preamble"]
+	path = modules/Quebec_fires_preamble
+	url = git@github.com:ianmseddy/Quebec_fires_preamble.git
