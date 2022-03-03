@@ -8,7 +8,7 @@ preambleObjects <- list(
   .runName = runName
 )
 
-preambleModules <- list("YOUR_MODULE_NAME", "canClimateData") ## TODO: use your module name
+preambleModules <- list("Quebec_fires_preamble", "canClimateData") ## TODO: use your module name
 
 preambleParams <- list(
   canClimateData = list(
@@ -19,7 +19,7 @@ preambleParams <- list(
     studyAreaName = studyAreaName,
     runName = runName
   ),
-  YOUR_MODULE_NAME = list( ## TODO: use your module name
+  Quebec_fires_preamble = list( ## TODO: use your module name
     .useCache = FALSE, # ".inputObjects",
     runName = runName
   )
