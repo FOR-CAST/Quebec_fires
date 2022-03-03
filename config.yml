@@ -1,13 +1,80 @@
 default:
   batchmode: false
   cachedb: "sqlite"
-  googleuser: ""
+  cacheformat: "qs"
+  climategcm: "CanESM5"
+  climatessp: 370
+  cloud:
+    cachedir: ""
+    googleuser: ""
+    usecloud: false
+    googledrivecache: null
+  codechecks: true
+  delaystart: 0
+  messagingNumCharsModule: 21
   paths:
     cachedir: "cache"
-    scratchdir: "/tmp/scratch"
+    inputpaths: null
+    libpathdeoptim: !expr Require::checkPath(ifelse(nzchar(Sys.getenv("PRJ_PKG_DIR")), Sys.getenv("PRJ_PKG_DIR"), "packages"))
+    scratchdir: !expr file.path(tempdir(), "scratch", "Quebec_fires")
   plot: true
-  slackchannel: ""
+  reproduciblealgorithm: 2
+  reupload: false
+  run: 1
+  simfileformat: "qs"
+  studyarea: "RIA" ## AB, BC, SK, MB, YT, NT, NU, RIA
+  uselandrcs: true
+  usememoise: false
+  useprerun: true
+  userequire: true
+  useterra: false
 
 production:
   batchmode: true
+  codechecks: false
+  delaystart: !expr sample(15L:45L, 1) # 15-45 minute delay to stagger starts
   plot: false
+
+alex:
+  inherits: production
+  cachedb: !expr if (grepl("spades", Sys.info()[["nodename"]])) "sqlite" else "postgresql"
+  cacheformat: "qs"
+  cloud:
+    #cachedir: ""
+    googleuser: "achubaty@for-cast.ca"
+    usecloud: false ## TODO: use cloud cache
+  codechecks: false ## TODO: set false after all fixed
+  messagingNumCharsModule: 36
+  nreps: 5
+  paths:
+    libpathdeoptim: "~/GitHub/Quebec_fires/packages"
+    scratchdir: !expr if (grepl("for-cast[.]ca", Sys.info()[["nodename"]])) "/mnt/scratch/Quebec_fires" else "/tmp/scratch/Quebec_fires"
+  reupload: !expr if (grepl("picea", Sys.info()[["nodename"]])) TRUE else FALSE
+  simfileformat: "qs"
+  slackchannel: "@alex.chubaty"
+  studyarea: "AB" ## AB, BC, SK, MB, YT, NT, NU, RIA
+  useprerun: !expr if (grepl("spades|pseudotsuga", Sys.info()[["nodename"]])) TRUE else FALSE
+
+ian:
+  cachedb: "sqlite"
+  cacheformat: "qs"
+  cloud:
+    #cachedir: ""
+    googleuser: "ianmseddy@gmail.com"
+    usecloud: false
+  codechecks: true ## TODO: set false after all fixed
+  reproduciblealgorithm: 2
+  paths:
+    scratchdir: !expr if (Sys.info()[["nodename"]] == "W-VIC-A127551") "D:/Ian/scratch" else "/mnt/scratch/ieddy/"
+
+guillaume:
+  cachedb: "sqlite"
+  cacheformat: "qs"
+  cloud:
+    #cachedir: ""
+    googleuser: "guillaume.martin.7@ulaval.ca"
+    usecloud: false
+  codechecks: true ## TODO: set false after all fixed
+  reproduciblealgorithm: 2
+  paths:
+    scratchdir: !expr file.path(tempdir(), "scratch", "Quebec_fires")
