@@ -22,7 +22,7 @@ default:
   reupload: false
   run: 1
   simfileformat: "qs"
-  studyarea: "RIA" ## AB, BC, SK, MB, YT, NT, NU, RIA
+  studyarea: "QC"
   uselandrcs: true
   usememoise: false
   useprerun: true
@@ -52,7 +52,6 @@ alex:
   reupload: !expr if (grepl("picea", Sys.info()[["nodename"]])) TRUE else FALSE
   simfileformat: "qs"
   slackchannel: "@alex.chubaty"
-  studyarea: "AB" ## AB, BC, SK, MB, YT, NT, NU, RIA
   useprerun: !expr if (grepl("spades|pseudotsuga", Sys.info()[["nodename"]])) TRUE else FALSE
 
 ian:
