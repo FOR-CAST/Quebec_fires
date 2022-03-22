@@ -17,7 +17,7 @@ climateSSP <- as.numeric(config::get("climatessp"))
 cloudCacheFolderID <- config::get("cloud")[["cachedir"]]
 codeChecks <- config::get("codechecks")
 delayStart <- config::get("delaystart")
-fitUsing <- if (grepl("for-cast[.]ca", Sys.info()[["nodename"]])) 3L else NA_integer_
+fitUsing <- if (grepl("for-cast[.]ca", Sys.info()[["nodename"]])) 3 else 0
 libPathDEoptim <- file.path(config::get("paths")[["libpathdeoptim"]], version$platform,
                             paste0(version$major, ".", strsplit(version$minor, "[.]")[[1]][1]))
 messagingNumCharsModule <- config::get("messagingNumCharsModule")
@@ -27,7 +27,7 @@ reproducibleAlgorithm <- config::get("reproduciblealgorithm")
 reupload <- config::get("reupload")
 run <- config::get("run")
 scratchDir <- config::get("paths")[["scratchdir"]]
-simFileFormat <- config::get()[["simfileformat"]]
+simFileFormat <- config::get("simfileformat")
 studyAreaName <- config::get("studyarea")
 useCloudCache <- config::get("cloud")[["usecloud"]]
 useLandR.CS <- config::get("uselandrcs")
