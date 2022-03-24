@@ -3,9 +3,9 @@ if (getDTthreads() > 4) {
 }
 
 switch(Sys.info()[["user"]],
-       "user1" = Sys.setenv(R_CONFIG_ACTIVE = "user1"),
-       "user2" = Sys.setenv(R_CONFIG_ACTIVE = "user2"),
-       "user3" = Sys.setenv(R_CONFIG_ACTIVE = "user3"),
+       "achubaty" = Sys.setenv(R_CONFIG_ACTIVE = "alex"),
+       "ieddy" = Sys.setenv(R_CONFIG_ACTIVE = "ian"),
+       "guillaume" = Sys.setenv(R_CONFIG_ACTIVE = "guillaume"), ## TODO: update this for your username
        Sys.setenv(R_CONFIG_ACTIVE = "test")
 )
 #Sys.getenv("R_CONFIG_ACTIVE") ## verify
@@ -27,7 +27,7 @@ reproducibleAlgorithm <- config::get("reproduciblealgorithm")
 reupload <- config::get("reupload")
 run <- config::get("run")
 scratchDir <- config::get("paths")[["scratchdir"]]
-simFileFormat <- config::get()[["simfileformat"]]
+simFileFormat <- config::get("simfileformat")
 studyAreaName <- config::get("studyarea")
 useCloudCache <- config::get("cloud")[["usecloud"]]
 useLandR.CS <- config::get("uselandrcs")

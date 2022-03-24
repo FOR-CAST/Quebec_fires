@@ -27,7 +27,7 @@ dfT <- cbind(c("lower", "upper"), t(data.frame(lower, upper)))
 message("Upper and Lower parameter bounds are:")
 Require:::messageDF(dfT)
 
-cores <- rep("localhost", parallel::detectCores() / 2)
+cores <- rep("localhost", min(parallel::detectCores() / 2, 100))
 
 spreadFitParams <- list(
   fireSense_SpreadFit = list(
@@ -52,12 +52,11 @@ spreadFitParams <- list(
     SNLL_FS_thresh = NULL, # NULL means 'autocalibrate' to find suitable threshold value
     upper = upper,
     # urlDEOptimObject = NULL,
-    "useCache_DE" = FALSE,
-    "useCloud_DE" = useCloudCache,
-    "verbose" = TRUE,
-    "visualizeDEoptim" = FALSE,
-    ".plot" = FALSE, # TRUE,
-    ".plotSize" = list(height = 1600, width = 2000)
+    useCloud_DE = useCloudCache,
+    verbose = TRUE,
+    visualizeDEoptim = FALSE,
+    .plot = FALSE, # TRUE,
+    .plotSize = list(height = 1600, width = 2000)
   )
 )
 
@@ -94,7 +93,7 @@ if (isTRUE(usePrerun) & isFALSE(upload_spreadOut)) {
     if (!dir.exists(tempdir())) {
       dir.create(tempdir()) ## TODO: why is this dir being removed in the first place?
     }
-    fdf <- googledrive::drive_put(media = fspreadOut, path = gdriveURL, name = basename(fspreadOut))
+    fdf <- googledrive::drive_put(media = fspreadOut, path = as_id(gdriveURL), name = basename(fspreadOut))
     gid_spreadOut <- as.character(fdf$id)
     rm(fdf)
     gdriveSims <- update_googleids(

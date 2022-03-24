@@ -9,7 +9,7 @@ fSdataPrepParams <- list(
     .studyAreaName = studyAreaName,
     .useCache = ".inputObjects",
     fireYears = 2001:2020,
-    igAggFactor = 10000 / unique(res(simOutPreamble[["rasterToMatch"]])),
+    igAggFactor = 10000 / unique(raster::res(simOutPreamble[["rasterToMatch"]])),
     sppEquivCol = simOutPreamble[["sppEquivCol"]],
     useCentroids = TRUE,
     usePCA = FALSE,
@@ -58,7 +58,7 @@ if (isTRUE(usePrerun)) {
 }
 
 if (isTRUE(upload_fSsimDataPrep)) {
-  fdf <- googledrive::drive_put(media = ffSsimDataPrep, path = gdriveURL, name = basename(ffSsimDataPrep))
+  fdf <- googledrive::drive_put(media = ffSsimDataPrep, path = as_id(gdriveURL), name = basename(ffSsimDataPrep))
   gid_fSsimDataPrep <- as.character(fdf$id)
   rm(fdf)
   gdriveSims <- update_googleids(
