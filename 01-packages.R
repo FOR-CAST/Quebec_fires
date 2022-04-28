@@ -17,7 +17,13 @@ if (FALSE) {
   sf::sf_extSoftVersion() ## want at least GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
 }
 
-out <- makeSureAllPackagesInstalled(modulePath = "modules")
+## gdalUtils is N/A on CRAN as of April 2022; dependency of pemisc, LandR, etc.
+if (!("gdalUtils" %in% rownames(installed.packages()))) {
+  install.packages("https://cran.r-project.org/src/contrib/Archive/gdalUtils/gdalUtils_2.0.3.2.tar.gz",
+                   repos = NULL)
+}
+
+#out <- makeSureAllPackagesInstalled(modulePath = "modules")
 
 Require(c("config", "RCurl", "RPostgres", "XML"), require = FALSE)
 
