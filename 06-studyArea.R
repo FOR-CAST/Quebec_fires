@@ -12,7 +12,7 @@ preambleModules <- list("Quebec_fires_preamble", "canClimateData") ## TODO: use 
 
 preambleParams <- list(
   canClimateData = list(
-    .useCache = ".inputObjects"
+    .useCache = ".inputObjects",
     climateGCM = climateGCM,
     climateSSP = climateSSP,
     historicalFireYears = 1991:2020,
