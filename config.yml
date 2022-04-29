@@ -27,7 +27,7 @@ default:
   usememoise: false
   useprerun: true
   userequire: true
-  useterra: true
+  useterra: false
 
 production:
   batchmode: true
