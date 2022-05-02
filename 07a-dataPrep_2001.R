@@ -62,7 +62,7 @@ dataPrepParams2001 <- list(
     minimumPlotsPerGamm = 65,
     quantileAgeSubset = 98,
     speciesFittingApproach = "focal",
-    sppEquivCol = simOutPreamble$sppEquivCol
+    sppEquivCol = simOutPreamble[["sppEquivCol"]]
   )
 )
 
