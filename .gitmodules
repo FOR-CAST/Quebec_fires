@@ -16,9 +16,6 @@
 [submodule "modules/Biomass_speciesFactorial"]
 	path = modules/Biomass_speciesFactorial
 	url = https://github.com/PredictiveEcology/Biomass_speciesFactorial
-[submodule "modules/Biomass_speciesParameters"]
-	path = modules/Biomass_speciesParameters
-	url = https://github.com/PredictiveEcology/Biomass_speciesParameters
 [submodule "modules/gmcsDataPrep"]
 	path = modules/gmcsDataPrep
 	url = https://github.com/ianmseddy/gmcsDataPrep
