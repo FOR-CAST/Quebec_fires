@@ -14,9 +14,7 @@ dataPrep <- list(
 
 dataPrepModules <- list(
   "Biomass_speciesData",
-  "Biomass_speciesFactorial",
-  "Biomass_borealDataPrep",
-  "Biomass_speciesParameters"
+  "Biomass_borealDataPrep"
 )
 
 dataPrepParams2001 <- list(
