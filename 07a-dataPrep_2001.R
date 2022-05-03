@@ -46,21 +46,6 @@ dataPrepParams2001 <- list(
     sppEquivCol = simOutPreamble[["sppEquivCol"]],
     types = "KNN",
     .studyAreaName = paste0(studyAreaName, 2001)
-  ),
-  Biomass_speciesFactorial = list(
-    factorialSize = "small" ## TODO: use medium?
-  ),
-  Biomass_speciesParameters = list(
-    constrainGrowthCurve = c(0, 1),
-    constrainMaxANPP = c(3.0, 3.5),
-    constrainMortalityShape = c(10, 25),
-    GAMMiterations = 2,
-    #GAMMknots[names(GAMMknots) %in% sppEquiv$LandR]
-    GAMMknots = 3,
-    minimumPlotsPerGamm = 65,
-    quantileAgeSubset = 98,
-    speciesFittingApproach = "focal",
-    sppEquivCol = simOutPreamble[["sppEquivCol"]]
   )
 )
 
